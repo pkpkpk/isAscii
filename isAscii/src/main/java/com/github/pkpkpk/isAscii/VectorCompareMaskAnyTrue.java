@@ -2,7 +2,7 @@ package com.github.pkpkpk.isAscii;
 
 import jdk.incubator.vector.*;
 
-public class VectorSingleThreadedChecker {
+public class VectorCompareMaskAnyTrue {
 
     public int check(byte[] byteArray) {
         ByteVector zero = ByteVector.zero(VectorSpecies.ofLargestShape(byte.class));
