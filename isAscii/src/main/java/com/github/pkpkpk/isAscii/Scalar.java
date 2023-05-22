@@ -1,6 +1,6 @@
 package com.github.pkpkpk.isAscii;
 
-public class Scalar  implements AsciiChecker {
+public class Scalar implements AsciiChecker {
 
     public int check(byte[] byteArray) {
         for (int i = 0; i < byteArray.length; i++) {

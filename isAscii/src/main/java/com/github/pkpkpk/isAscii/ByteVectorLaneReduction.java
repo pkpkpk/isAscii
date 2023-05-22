@@ -17,7 +17,6 @@ public class ByteVectorLaneReduction implements AsciiChecker {
             }
         }
 
-        // Check remaining elements that don't fit into a vector.
         for (; i < byteArray.length; i++) {
             if ((byteArray[i] & 0b10000000) != 0) {
                 return i;

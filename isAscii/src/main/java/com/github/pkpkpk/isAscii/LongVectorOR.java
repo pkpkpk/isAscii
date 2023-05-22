@@ -2,7 +2,7 @@ package com.github.pkpkpk.isAscii;
 
 import jdk.incubator.vector.*;
 
-public class LongVectorORCheck implements AsciiChecker {
+public class LongVectorOR implements AsciiChecker {
     private static final VectorSpecies<Byte> SPECIES_BYTE = ByteVector.SPECIES_PREFERRED;
     private static final VectorSpecies<Long> SPECIES_LONG = LongVector.SPECIES_PREFERRED;
     private static final long HIGH_BITS_SET = 0x8080808080808080L;
@@ -22,9 +22,8 @@ public class LongVectorORCheck implements AsciiChecker {
             }
         }
 
-        // scalar for the remaining
         for (; i < array.length; i++) {
-            if (array[i] < 0) { // check for non-ASCII
+            if (array[i] < 0) {
                 return i;
             }
         }

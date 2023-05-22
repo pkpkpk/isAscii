@@ -36,7 +36,7 @@ public class BenchmarkRunner {
 
     @Benchmark
     public void benchLongVectorORCheck(MyState state) {
-        AsciiChecker checker = new LongVectorORCheck();
+        AsciiChecker checker = new LongVectorOR();
         assert -1 == checker.check(state.byteArray);
     }
 
