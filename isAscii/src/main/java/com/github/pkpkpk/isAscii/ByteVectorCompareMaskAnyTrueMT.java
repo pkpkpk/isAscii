@@ -3,10 +3,10 @@ package com.github.pkpkpk.isAscii;
 import java.util.concurrent.*;
 import jdk.incubator.vector.*;
 
-public class VectorLaneReductionMT implements AsciiChecker {
+public class ByteVectorCompareMaskAnyTrueMT implements AsciiChecker {
     private final ExecutorService executorService;
 
-    public VectorLaneReductionMT() {
+    public ByteVectorCompareMaskAnyTrueMT() {
         this.executorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
     }
 
@@ -41,7 +41,7 @@ public class VectorLaneReductionMT implements AsciiChecker {
         int i = start;
         for (; i < end - species.length(); i += species.length()) {
             ByteVector vector = ByteVector.fromArray(species, byteArray, i);
-            if (vector.reduceLanes(VectorOperators.OR) < 0) {
+            if (vector.compare(VectorOperators.UNSIGNED_GE, (byte) 0b10000000).anyTrue()) {
                 for (int j = 0; j < vector.length(); j++) {
                     if ((byteArray[i + j] & 0b10000000) != 0) {
                         return i + j;
@@ -60,3 +60,4 @@ public class VectorLaneReductionMT implements AsciiChecker {
         return -1;
     }
 }
+

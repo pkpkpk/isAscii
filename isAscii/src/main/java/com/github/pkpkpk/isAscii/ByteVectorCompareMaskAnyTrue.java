@@ -2,7 +2,7 @@ package com.github.pkpkpk.isAscii;
 
 import jdk.incubator.vector.*;
 
-public class VectorCompareMaskAnyTrue implements AsciiChecker {
+public class ByteVectorCompareMaskAnyTrue implements AsciiChecker {
 
     public int check(byte[] byteArray) {
         ByteVector zero = ByteVector.zero(VectorSpecies.ofLargestShape(byte.class));

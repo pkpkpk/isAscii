@@ -4,7 +4,7 @@ import jdk.incubator.vector.ByteVector;
 import jdk.incubator.vector.VectorOperators;
 import jdk.incubator.vector.VectorSpecies;
 
-public class VectorCompareMaskToLong implements AsciiChecker {
+public class ByteVectorCompareMaskToLong implements AsciiChecker {
 
     public int check(byte[] byteArray) {
         ByteVector zero = ByteVector.zero(VectorSpecies.ofLargestShape(byte.class));

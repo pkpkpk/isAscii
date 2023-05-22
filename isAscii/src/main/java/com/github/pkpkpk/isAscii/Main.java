@@ -1,6 +1,5 @@
 package com.github.pkpkpk.isAscii;
 
-import java.lang.reflect.InvocationTargetException;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.List;
@@ -28,9 +27,9 @@ public class Main {
         List<AsciiChecker> checkers = Arrays.asList(
                 new Scalar(),
                 new LongVectorORCheck(),
-                new VectorLaneReduction(),
-                new VectorCompareMaskAnyTrue(),
-                new VectorCompareMaskToLong()
+                new ByteVectorLaneReduction(),
+                new ByteVectorCompareMaskAnyTrue(),
+                new ByteVectorCompareMaskToLong()
                 // new ScalarMT(),
                 // new VectorLaneReductionMT(),
                 // new VectorCompareMaskAnyTrueMT(),
