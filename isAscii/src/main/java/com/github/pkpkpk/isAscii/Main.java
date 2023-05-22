@@ -30,10 +30,6 @@ public class Main {
                 new ByteVectorLaneReduction(),
                 new ByteVectorCompareMaskAnyTrue(),
                 new ByteVectorCompareMaskToLong()
-                // new ScalarMT(),
-                // new VectorLaneReductionMT(),
-                // new VectorCompareMaskAnyTrueMT(),
-                // new VectorCompareMaskToLongMT(),
         );
 
         for (AsciiChecker checker : checkers) {
