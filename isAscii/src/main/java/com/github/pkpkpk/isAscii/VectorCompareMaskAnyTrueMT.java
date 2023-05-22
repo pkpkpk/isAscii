@@ -3,7 +3,7 @@ package com.github.pkpkpk.isAscii;
 import java.util.concurrent.*;
 import jdk.incubator.vector.*;
 
-public class VectorCompareMaskAnyTrueMT {
+public class VectorCompareMaskAnyTrueMT implements AsciiChecker {
     private final ExecutorService executorService;
 
     public VectorCompareMaskAnyTrueMT() {

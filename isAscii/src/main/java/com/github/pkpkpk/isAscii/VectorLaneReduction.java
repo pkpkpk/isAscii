@@ -2,7 +2,7 @@ package com.github.pkpkpk.isAscii;
 
 import jdk.incubator.vector.*;
 
-public class VectorLaneReduction {
+public class VectorLaneReduction implements AsciiChecker {
     public int check(byte[] byteArray) {
         VectorSpecies<Byte> species = VectorSpecies.ofLargestShape(byte.class);
         int i = 0;

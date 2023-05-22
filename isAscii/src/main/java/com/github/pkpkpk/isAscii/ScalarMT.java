@@ -2,7 +2,7 @@ package com.github.pkpkpk.isAscii;
 
 import java.util.concurrent.*;
 
-public class ScalarMT {
+public class ScalarMT implements AsciiChecker {
     private final ExecutorService executorService;
 
     public ScalarMT() {
