@@ -25,13 +25,13 @@ public class Test {
         return new DataWithNonAscii(data, nonAsciiIndex);
     }
 
-    private static void testCheckers(AsciiChecker[] checkers, DataWithNonAscii dataWithNonAscii) {
+    private static void testCheckers(String label, AsciiChecker[] checkers, DataWithNonAscii dataWithNonAscii) {
         for (AsciiChecker checker : checkers) {
             int result = checker.check(dataWithNonAscii.data);
             if (result != dataWithNonAscii.nonAsciiIndex) {
-                throw new AssertionError("AsciiChecker " + checker.getClass().getSimpleName() + " returned " + result + ", expected " + dataWithNonAscii.nonAsciiIndex);
+                throw new AssertionError(label + ": " + checker.getClass().getSimpleName() + " returned " + result + ", expected " + dataWithNonAscii.nonAsciiIndex);
             }
-            System.out.println("Test passed for " + checker.getClass().getSimpleName() + " with data length " + dataWithNonAscii.data.length);
+            System.out.println(label + " passed for " + checker.getClass().getSimpleName() + " with data length " + dataWithNonAscii.data.length);
         }
     }
 
@@ -46,10 +46,8 @@ public class Test {
     }
 
     public static void main(String[] args) {
-
-        // Create two data arrays, one within the preferred length, and one exceeding it
         DataWithNonAscii shortData = createData(PREFERRED_LENGTH);
-        DataWithNonAscii longData = createData(PREFERRED_LENGTH * 2);
+        DataWithNonAscii longData = createData(PREFERRED_LENGTH * 2 + random.nextInt(PREFERRED_LENGTH));
 
         // Create instances of your AsciiChecker implementations
         AsciiChecker[] checkers = new AsciiChecker[]{
@@ -60,7 +58,7 @@ public class Test {
                 new LongVectorOR(),
         };
 
-        testCheckers(checkers, shortData);
-        testCheckers(checkers, longData);
+        testCheckers("short data", checkers, shortData);
+        testCheckers("long data", checkers, longData);
     }
 }
