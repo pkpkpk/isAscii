@@ -1,0 +1,20 @@
+Intel(R) Xeon(R) CPU E5-2666 v3 @ 2.90GHz
+Vector size = 32 bytes
+
+# JMH version: 1.36
+# VM version: JDK 20.0.1, OpenJDK 64-Bit Server VM, 20.0.1+9-FR
+# VM invoker: /usr/lib/jvm/java-20-amazon-corretto/bin/java
+# VM options: -ea -Xmx4g --add-modules=jdk.incubator.vector
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 3 iterations, 10 s each
+# Measurement: 8 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+
+
+Benchmark                                                  Mode  Cnt   Score   Error  Units
+isAscii.BenchmarkRunner.benchByteVectorCompareMaskAnyTrue  avgt    8  43.571 ± 0.105  ms/op
+isAscii.BenchmarkRunner.benchByteVectorCompareMaskToLong   avgt    8  42.094 ± 0.135  ms/op
+isAscii.BenchmarkRunner.benchByteVectorLaneReduction       avgt    8  51.571 ± 0.515  ms/op
+isAscii.BenchmarkRunner.benchScalar                        avgt    8  98.545 ± 0.080  ms/op
