@@ -35,12 +35,6 @@ public class BenchmarkRunner {
     }
 
     @Benchmark
-    public void benchLongVectorOR(MyState state) {
-        AsciiChecker checker = new LongVectorOR();
-        assert -1 == checker.check(state.byteArray);
-    }
-
-    @Benchmark
     public void benchByteVectorCompareMaskAnyTrue(MyState state) {
         AsciiChecker checker = new ByteVectorCompareMaskAnyTrue();
         assert -1 == checker.check(state.byteArray);

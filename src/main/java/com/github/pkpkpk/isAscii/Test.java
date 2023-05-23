@@ -54,8 +54,7 @@ public class Test {
                 new Scalar(),
                 new ByteVectorLaneReduction(),
                 new ByteVectorCompareMaskAnyTrue(),
-                new ByteVectorCompareMaskToLong(),
-                new LongVectorOR(),
+                new ByteVectorCompareMaskToLong()
         };
 
         testCheckers("short data", checkers, shortData);
