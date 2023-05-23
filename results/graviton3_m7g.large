@@ -1,0 +1,20 @@
+Graviton3 (Neoverse N???)
+Vector size = 16 bytes
+
+# JMH version: 1.36
+# VM version: JDK 20.0.1, OpenJDK 64-Bit Server VM, 20.0.1+9-FR
+# VM invoker: /usr/lib/jvm/java-20-amazon-corretto/bin/java
+# VM options: -ea -Xmx4g --add-modules=jdk.incubator.vector
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 3 iterations, 10 s each
+# Measurement: 8 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+
+
+Benchmark                                                  Mode  Cnt   Score   Error  Units
+isAscii.BenchmarkRunner.benchByteVectorCompareMaskAnyTrue  avgt    8  25.038 ± 0.075  ms/op
+isAscii.BenchmarkRunner.benchByteVectorCompareMaskToLong   avgt    8  53.107 ± 0.035  ms/op
+isAscii.BenchmarkRunner.benchByteVectorLaneReduction       avgt    8  40.019 ± 0.182  ms/op
+isAscii.BenchmarkRunner.benchScalar                        avgt    8  93.601 ± 0.171  ms/op
