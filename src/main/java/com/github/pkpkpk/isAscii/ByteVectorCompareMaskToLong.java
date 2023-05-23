@@ -7,7 +7,7 @@ import jdk.incubator.vector.VectorSpecies;
 public class ByteVectorCompareMaskToLong implements AsciiChecker {
 
     public int check(byte[] byteArray) {
-        ByteVector zero = ByteVector.zero(VectorSpecies.ofLargestShape(byte.class));
+        ByteVector zero = ByteVector.zero(VectorSpecies.ofPreferred(byte.class));
         int i = 0;
 
         for (; i <= byteArray.length - zero.length(); i += zero.length()) {

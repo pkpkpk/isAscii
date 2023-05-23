@@ -4,7 +4,7 @@ import jdk.incubator.vector.*;
 
 public class ByteVectorLaneReduction implements AsciiChecker {
     public int check(byte[] byteArray) {
-        VectorSpecies<Byte> species = VectorSpecies.ofLargestShape(byte.class);
+        VectorSpecies<Byte> species = VectorSpecies.ofPreferred(byte.class);
         int i = 0;
         for (; i < byteArray.length - species.length(); i += species.length()) {
             ByteVector vector = ByteVector.fromArray(species, byteArray, i);
