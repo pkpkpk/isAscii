@@ -4,10 +4,10 @@ import jdk.incubator.vector.*;
 
 public class ByteVectorLaneReduction implements AsciiChecker {
     public int check(byte[] byteArray) {
-        VectorSpecies<Byte> species = VectorSpecies.ofPreferred(byte.class);
+        VectorSpecies<Byte> SPECIES = ByteVector.SPECIES_PREFERRED;
         int i = 0;
-        for (; i < byteArray.length - species.length(); i += species.length()) {
-            ByteVector vector = ByteVector.fromArray(species, byteArray, i);
+        for (; i < byteArray.length - SPECIES.length(); i += SPECIES.length()) {
+            ByteVector vector = ByteVector.fromArray(SPECIES, byteArray, i);
             if (vector.reduceLanes(VectorOperators.OR) < 0) {
                 for (int j = 0; j < vector.length(); j++) {
                     if ((byteArray[i + j] & 0b10000000) != 0) {
