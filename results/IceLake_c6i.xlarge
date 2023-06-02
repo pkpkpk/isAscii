@@ -4,17 +4,17 @@ Vector size = 64 bytes
 # JMH version: 1.36
 # VM version: JDK 20.0.1, OpenJDK 64-Bit Server VM, 20.0.1+9-FR
 # VM invoker: /usr/lib/jvm/java-20-amazon-corretto/bin/java
-# VM options: -ea -Xmx4g --add-modules=jdk.incubator.vector
+# VM options: -Xmx4g --add-modules=jdk.incubator.vector
 # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
 # Warmup: 3 iterations, 10 s each
 # Measurement: 8 iterations, 10 s each
 # Timeout: 10 min per iteration
 # Threads: 1 thread, will synchronize iterations
-# Benchmark mode: Average time, time/op
+# Benchmark mode: Throughput, ops/time
 
+Benchmark                                                   Mode  Cnt   Score   Error  Units
+isAscii.BenchmarkRunner.benchByteVectorCompareMaskAnyTrue  thrpt    8  31.860 ± 0.432  ops/s
+isAscii.BenchmarkRunner.benchByteVectorCompareMaskToLong   thrpt    8  32.210 ± 0.232  ops/s
+isAscii.BenchmarkRunner.benchByteVectorLaneReduction       thrpt    8  27.199 ± 0.279  ops/s
+isAscii.BenchmarkRunner.benchScalar                        thrpt    8  11.941 ± 0.011  ops/s
 
-Benchmark                                                  Mode  Cnt   Score   Error  Units
-isAscii.BenchmarkRunner.benchByteVectorCompareMaskAnyTrue  avgt    8  33.070 ± 0.570  ms/op
-isAscii.BenchmarkRunner.benchByteVectorCompareMaskToLong   avgt    8  31.987 ± 0.576  ms/op
-isAscii.BenchmarkRunner.benchByteVectorLaneReduction       avgt    8  39.026 ± 0.824  ms/op
-isAscii.BenchmarkRunner.benchScalar                        avgt    8  84.450 ± 0.341  ms/op
